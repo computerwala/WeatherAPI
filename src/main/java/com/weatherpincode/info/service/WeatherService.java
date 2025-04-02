@@ -49,7 +49,7 @@ public class WeatherService {
         return weatherRepo.save(weather);
     }
 
-    private PincodeLocation fetchAndSavePincode(String pincode) {
+    public PincodeLocation fetchAndSavePincode(String pincode) {
         try {
             String url = String.format("%s?zip=%s,IN&appid=%s", geocodeUrl, pincode, apiKey);
             ResponseEntity<Map> response = restTemplate.getForEntity(url, Map.class);
@@ -74,7 +74,7 @@ public class WeatherService {
         }
     }
 
-    private String fetchWeatherData(Double lat, Double lon) {
+    public String fetchWeatherData(Double lat, Double lon) {
         try {
             String url = String.format("%s?lat=%s&lon=%s&appid=%s&units=metric",
                     weatherUrl, lat, lon, apiKey);

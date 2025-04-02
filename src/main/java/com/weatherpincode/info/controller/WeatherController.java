@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 import java.time.LocalDate;
 
 @RestController
-@RequiredArgsConstructor // Lombok generates a constructor for final fields
+@RequiredArgsConstructor
 @RequestMapping("/api")
 public class WeatherController {
-    private final WeatherService weatherService; // Add 'final' keyword
+    private final WeatherService weatherService;
 
     @GetMapping("/weather")
     public ResponseEntity<WeatherInfo> getWeather(
